@@ -1,33 +1,35 @@
 "use client"
 
+import Sayac from "@/components/Sayac"
 import { useState } from "react"
 
 
 
 export default function Home(){
-  let name = "Hüseyin"
   let age = 12
   let kullanici_adi = "userbasdsadad"
   const [acik_mi,ayarla] = useState(false)
+  const [name,setName]=useState("Hüseyin")
   function toggle(){
     ayarla(!acik_mi)
   }
+  function isimAyarla(e){
+    setName(e.target.value)
+  }
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <button onClick={toggle} className="bg-blue-500 p-2
-      text-white rounded-md shadow-lg">
-        Aç / Kapa
-      </button>
-      {
-        acik_mi
-        ?
-        <div className="bg-red-500 h-80 w-80">
-        Kutu
-        </div>
-        :
-        ""
-      }
+    <div>
+      <h1>{name}</h1>
 
+      <input onKeyUp={isimAyarla} type="text" placeholder="İsim girin" />
+
+      <input
+        onKeyUp={(e) => setName(e.target.value)}
+        type="text"
+        placeholder="İsim girin"
+      />
+
+      <Sayac />
+     
     </div>
   );
 }
