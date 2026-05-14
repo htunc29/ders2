@@ -2,6 +2,7 @@
 
 import Ogrenci from "@/components/Ogrenci"
 import Sayac from "@/components/Sayac"
+import Link from "next/link"
 import { useState } from "react"
 
 
@@ -72,6 +73,8 @@ export default function Home(){
           />
         ))}
       </div>
+      <Link href={"/shop"}>Mağaza</Link>
+      
     </div>
   );
 }
